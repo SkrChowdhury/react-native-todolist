@@ -34,6 +34,7 @@ const [items,setItems] = useState([
 ]);
 
 const [enteredText,setEnteredText] = useState('');
+const [defaultValue,setDefaultValue] = useState('');
 
 const removeItem = (id) => {
     setItems(oldItems => {
@@ -44,10 +45,8 @@ const removeItem = (id) => {
 const addItem = (text) => {
      setItems(oldItems => {
         return [{id: uuid.v4(),text},...oldItems];
-
      })
-    
-
+     setEnteredText('');
 }
 
 
@@ -75,6 +74,7 @@ const addItem = (text) => {
         />
         <TouchableOpacity
         onPress={()=> {addItem(enteredText)}}
+
          style={styles.addButton}>
             <Text style={styles.addButtonText}>Add Item</Text>
         </TouchableOpacity>
